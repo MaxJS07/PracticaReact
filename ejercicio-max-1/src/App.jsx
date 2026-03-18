@@ -10,6 +10,7 @@ import Select from './components/Select'
 import Checkbox from './components/Checkbox'
 import './App.css'
 import RadioButton from './components/RadioButton'
+import Alert from './components/Alert'
 
 function App() {
 
@@ -76,6 +77,15 @@ function App() {
         <RadioButton id="Radio2" label= "Radio button 2" groupName="radioGroup1"></RadioButton>
         <RadioButton id="Radio3" label= "Radio button 3" groupName="radioGroup1"></RadioButton>
         <RadioButton id="Radio4" label= "Radio button 4" groupName="radioGroup1"></RadioButton>
+      </div>
+    },
+    {
+      id: "collapseSeven",
+      title: "Alertas",
+      content: <div>
+        <Alert alertType="alert-primary" text="Esta es una alerta con color azul"></Alert>
+        <Alert alertType="alert-danger" text="Esta es una alerta de peligro"></Alert>
+        <Alert alertType="alert-warning" text="Esta es una alerta de precaución"></Alert>
       </div>
     }
   ]
