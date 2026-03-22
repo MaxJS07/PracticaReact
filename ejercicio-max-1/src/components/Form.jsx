@@ -27,10 +27,25 @@ const Form = ({fields, onSubmit}) =>{
         <form onSubmit={handleSubmit}>
             {fields.map((field, index) => (
                 <div className="mb-3" key={index}>
-                    <label></label>
+                    <label className={field.type === "checkbox" ? "form-check-label" : "form-label" } >
+                        {field.label}
+                    </label>
+                    <input
+                        type={field.type}
+                        name={field.name}
+                        className={field.type === "checkbox" ? "form-check-input" : "form-control" }
+                        value={field.type !== "checkbox" ? formData[field.name] : undefined}
+                        checked={field.type === "checkbox" ? formData[field.name] : undefined}
+                        onChange={handleChange}
+                    >
+                    </input>
                 </div>
             ))}
-
+            <button type="submit" className="btn btn-primary">
+                Enviar
+            </button>
         </form>
     )
 }
+
+export default Form;

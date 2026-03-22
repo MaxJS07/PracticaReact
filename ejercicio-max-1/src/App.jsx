@@ -11,9 +11,20 @@ import Checkbox from './components/Checkbox'
 import './App.css'
 import RadioButton from './components/RadioButton'
 import Alert from './components/Alert'
+import Form from './components/Form'
+import Badge from './components/Badge'
 
 function App() {
 
+  const handleFormSubmit = (data) => {
+    console.log("Datos del formulario:", data);
+  };
+
+  const formFields = [
+    {name: "email", label: "Email", type: "email"},
+    {name: "password", label: "Password", type: "password"},
+    {name: "remember", label: "Recordarme", type: "checkbox"}
+  ]
 
   const selectData = [
     {value: "ES", text: "El Salvador"},
@@ -86,6 +97,25 @@ function App() {
         <Alert alertType="alert-primary" text="Esta es una alerta con color azul"></Alert>
         <Alert alertType="alert-danger" text="Esta es una alerta de peligro"></Alert>
         <Alert alertType="alert-warning" text="Esta es una alerta de precaución"></Alert>
+      </div>
+    },
+    {
+      id: "collapseEight",
+      title: "Forms",
+      content: <div>
+        <Form fields={formFields} onSubmit={handleFormSubmit}></Form>
+      </div>
+    },
+    {
+      id: "collapseNine",
+      title: "Badges",
+      content: <div>
+        <h1>Este es un titulo nivel uno con un badge <Badge extraClasses="text-bg-secondary" text="Nuevo!"></Badge></h1>
+        <h2>Este es un titulo nivel dos con un badge <Badge extraClasses="text-bg-secondary" text="Nuevo!"></Badge></h2>
+        <button type="button" class="btn btn-primary position-relative">
+          Mensajes
+          <Badge extraClasses={"position-absolute top-0 start-100 translate-middle rounded-pill bg-danger"} text={"+99"}/>  
+        </button>
       </div>
     }
   ]
